@@ -1,0 +1,23 @@
+
+{
+					"firstName":"Pushpa131",
+						"lastName":"saha",
+						"employeeId":658631,
+						"employeeEmailId":"Sneha.saha22311@cognizant.com",
+					"supervisorEmailId":"avichibalamurugan.n1131@cognizant.com",
+						"department":"CTS",
+						"progLanguage":"DOTNET",
+					"proficiencylevel":"p1",
+						"frameworks":"f1",
+					"linuxskill":"l1",
+						"fullstackcompleted":"fs",
+						"fullstackskills":"fsk",
+					"userthoughtstraning":"ut",
+					"usercommentstraining":"tc",
+					"phoneNumber":12353,
+						"uniqueid":"734851"
+					}
+          
+          //application/json
+          
+          //Header:[{"key":"Authorization","value":"Basic cGFsdXNlcjpTaW1wbGU0dSE=","description":""}]
