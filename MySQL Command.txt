@@ -1,0 +1,7 @@
+Export MySQL
+
+mysqldump -uroot -p palusers > "D:\Db.sql"
+
+Run Script in MySQL
+
+SOURCE D:/Db.sql
