@@ -1,0 +1,4 @@
+Username : arut.Cognizant.com 
+Password : sudar
+API endpoint : api.system.cumuluslabs.io
+Apps Manager URL : https://apps.system.cumuluslabs.io
