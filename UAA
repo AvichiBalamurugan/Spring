@@ -1,0 +1,99 @@
+Method 1:
+
+URL:
+
+[YOUR UAA INSTANCE]/oauth/token
+
+Headers:
+
+    authorisation=Basic [Base64 of your clientID and Client secret in the form "[clientID]:[clientSecret]]"
+
+Body:
+
+    username=[Your username]
+
+    password=[Your password]
+
+    grant_type=password
+
+Encoding:
+
+    x-www-form-urlencoded
+
+[Site:https://forum.predix.io/questions/3528/how-do-i-automatically-retrieve-a-uaa-authorizatio.html]
+
+
+Method 2:
+
+String encodeData =
+new String(Base64.encodeBase64((clientId+":"+clientSecret).getBytes("ISO-8859-1")));
+
+HttpClient client = HttpClients.createDefault();
+HttpPost httpPost = new HttpPost("https://login.mypurecloud.jp/oauth/token");
+httpPost.addHeader("Authorization", " Basic " + encodeData);
+httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
+httpPost.addHeader("grant_type", "client_credentials");
+HttpResponse response = client.execute(httpPost);
+
+Refer https://stackoverflow.com/questions/13109588/base64-encoding-in-java
+
+Method 3:
+
+Postman
+
+POST /uaa/oauth/token? username=marissa&password=koala&client_id=app&grant_type=password HTTP/1.1
+Host: localhost:8080
+
+https://docs.cloudfoundry.org/api/uaa/version/4.8.0/index.html#authorization
+
+curl -k 'https://ec2-54-255-164-233.ap-southeast-1.compute.amazonaws.com/oauth/token' -i -X POST \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+    -H 'Accept: application/json' \
+    -d 'client_id=opsman&username=pcfopsadmin&password=pcfops123&grant_type=client_credentials&token_format=opaque&response_type=token'
+
+Content-Type: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+Cache-Control: no-cache
+
+Method 4:
+POST Request URL -> UAA URI Header:- Content-Type -> application/x-www-form-urlencoded Authorization --> Basic Base64encodedclientname:Base64encodedclientpassword
+
+Body :- (x-www-form-urlencoded) grant_type -> client_credentials client_id --> client name password --> client password 
+[Site:https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst#oauth2-token-endpoint-post-oauth-token]
+
+Method 5:
+POST /uaa/oauth/token HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+Authorization: Basic YXBwOmFwcGNsaWVudHNlY3JldA==
+"grant_type=password&username=marissa&password=koala"
+
+
+
+
+
+https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst
+
+https://forum.predix.io/questions/3528/how-do-i-automatically-retrieve-a-uaa-authorizatio.html
+
+https://stackoverflow.com/questions/28868664/how-can-i-get-security-token-from-uaa-server-using-python-or-postman
+
+http://www.starkandwayne.com/blog/using-the-check-token-endpoint/
+
+https://github.com/cloudfoundry/uaa/blob/master/docs/UAA-APIs.rst#oauth2-token-endpoint-post-oauth-token
+
+https://stackoverflow.com/questions/13109588/base64-encoding-in-java
+
+https://sks.gitbooks.io/my-road-2-industrial-applications/content/en/Security/getting_token_from_uaa.html
+
+https://github.com/cloudfoundry/uaa
+
+https://forum.predix.io/questions/8969/get-uaa-client-token-via-postman.html
+
+https://help.sap.com/viewer/afa922439b204e9caf22c78b6b69e4f2/2.4.0.0/en-US/0c2309ff879e4174a21fd342f137e8e0.html
+
+http://www.projsolution.com/a102-14832-cloudfoundry-uaa
+
+https://docs.cloudfoundry.org/concepts/architecture/uaa.html
+
+
