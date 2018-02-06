@@ -1,0 +1,19 @@
+Install Concourse
+
+curl -Lo concourse https://github.com/concourse/concourse/releases/download/v3.6.0/concourse_darwin_amd64 && chmod +x concourse && mv concourse /usr/local/bin
+
+Install Fly
+
+curl -Lo fly https://github.com/concourse/concourse/releases/download/v3.6.0/fly_darwin_amd64 && chmod +x fly && mv fly /usr/local/bin/
+
+Login Fly
+
+fly -t capsule login -c http://52.221.167.173:8080 -n PCF-capsule
+
+http://52.221.167.173:8080/teams/PCF-capsule/pipelines/hello-world
+
+fly -t capsule unpause-pipeline -p hello-world
+
+fly -t capsule destroy-pipeline --pipeline hello-world
+
+fly -t capsule watch --job hello-world/hello-world
