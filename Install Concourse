@@ -16,4 +16,6 @@ fly -t capsule unpause-pipeline -p hello-world
 
 fly -t capsule destroy-pipeline --pipeline hello-world
 
-fly -t capsule watch --job hello-world/hello-world
+fly -t capsule watch --job hello/hello-world
+
+fly -t capsule set-pipeline -p hello-world -c /Users/mnameit/documents/hello.yml
